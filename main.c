@@ -7,7 +7,7 @@ int main(int argc, char **argv){
 	int elementos = 0;
 	char c = 0;
 	
-//prueba	
+	
 	//Aqui manejamos las opciones.
 	//El argumento -p tiene un argumento, que es 
 	//el numero de elementos a pedir (por eso el :)
@@ -27,8 +27,40 @@ int main(int argc, char **argv){
 	float sum = 0.0f;
 	float max_imc = 0.0f;
 	
+	float peso = 0.0f;
+	float altura = 0.0f;
+       	float imcTemp = 0.0f;
+	int i = 0;
 	
+	if(elementos <=0){
+		printf("Argumento invalido \n");
+		exit(1);
+	}
 	
+	while(i<elementos){
+		i=i+1;
+
+		printf("Peso: ");
+		scanf("%f", &peso);
+		if(peso<0){
+			printf("Numero Invalido \n");
+			exit(1);
+		}
+
+		printf("Altura: ");
+		scanf("%f", &altura);
+		if(altura<0){
+			printf("Numero Invalido \n");
+			exit(1);
+		}
+
+		imcTemp= peso/(altura *altura);
+		sum=sum+imcTemp;
+		if( max_imc<imcTemp){
+			max_imc=imcTemp;
+		}
+	}
+	sum=sum/elementos;
 	
 	//No modifique estas lineas
 	//Guarde los resultados en las 
